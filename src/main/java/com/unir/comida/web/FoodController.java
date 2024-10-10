@@ -3,6 +3,7 @@ package com.unir.comida.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +21,9 @@ public class FoodController {
   @GetMapping
   public ResponseEntity<List<FoodEntity>> getAll() {
     return ResponseEntity.ok(this.foodService.getAll());
+  }
+  @GetMapping("/{idFood}")
+  public ResponseEntity<FoodEntity> get(@PathVariable int idFood) {
+    return ResponseEntity.ok(this.foodService.get(idFood));
   }
 }
