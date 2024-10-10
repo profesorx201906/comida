@@ -31,6 +31,20 @@ public class FoodController {
     return ResponseEntity.ok(this.foodService.get(idFood));
   }
 
+  @GetMapping("/available")
+  public ResponseEntity<List<FoodEntity>> getAvailable() {
+    return ResponseEntity.ok(this.foodService.getAvailable());
+  }
+  @GetMapping("/veganvegetarian")
+  public ResponseEntity<List<FoodEntity>> getAvailableVeganVegetarian() {
+    return ResponseEntity.ok(this.foodService.getAvailableVeganVegetarian());
+  }
+
+  @GetMapping("/name/{name}")
+  public ResponseEntity<FoodEntity> getByName(@PathVariable String name) {
+    return ResponseEntity.ok(this.foodService.getByName(name));
+  }
+
   @PostMapping
   public ResponseEntity<FoodEntity> add(@RequestBody FoodEntity food) {
     if (food.getIdFood() == null || !this.foodService.exists(food.getIdFood())) {

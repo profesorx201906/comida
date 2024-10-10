@@ -16,6 +16,18 @@ public class FoodService {
     return this.foodRepository.findAll();
   }
 
+  public List<FoodEntity> getAvailable() {
+    return this.foodRepository.findAllByAvailableTrueOrderByPrice();
+  }
+
+  public FoodEntity getByName(String name) {
+    return this.foodRepository.findAllByAvailableTrueAndNameIgnoreCase(name);
+  }
+
+  public List<FoodEntity> getAvailableVeganVegetarian() {
+    return this.foodRepository.findAllByAvailableTrueAndVeganTrueOrVegetarianTrue();
+  }
+
   public FoodEntity get(int idFood) {
     return this.foodRepository.findById(idFood).orElse(null);
   }
