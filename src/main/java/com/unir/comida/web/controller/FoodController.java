@@ -1,4 +1,4 @@
-package com.unir.comida.web;
+package com.unir.comida.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -35,6 +35,7 @@ public class FoodController {
   public ResponseEntity<List<FoodEntity>> getAvailable() {
     return ResponseEntity.ok(this.foodService.getAvailable());
   }
+
   @GetMapping("/veganvegetarian")
   public ResponseEntity<List<FoodEntity>> getAvailableVeganVegetarian() {
     return ResponseEntity.ok(this.foodService.getAvailableVeganVegetarian());
@@ -43,6 +44,16 @@ public class FoodController {
   @GetMapping("/name/{name}")
   public ResponseEntity<FoodEntity> getByName(@PathVariable String name) {
     return ResponseEntity.ok(this.foodService.getByName(name));
+  }
+
+  @GetMapping("/with/{ingredient}")
+  public ResponseEntity<List<FoodEntity>> getWith(@PathVariable String ingredient) {
+    return ResponseEntity.ok(this.foodService.getWith(ingredient));
+  }
+
+  @GetMapping("/without/{ingredient}")
+  public ResponseEntity<List<FoodEntity>> getWithout(@PathVariable String ingredient) {
+    return ResponseEntity.ok(this.foodService.getWithout(ingredient));
   }
 
   @PostMapping

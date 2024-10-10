@@ -10,6 +10,10 @@ public interface FoodRepository extends ListCrudRepository<FoodEntity, Integer> 
 
   FoodEntity findAllByAvailableTrueAndNameIgnoreCase(String name);
 
+  List<FoodEntity> findAllByAvailableTrueAndDescriptionContainingIgnoreCase(String description);
+
+  List<FoodEntity> findAllByAvailableTrueAndDescriptionNotContainingIgnoreCase(String description);
+
   List<FoodEntity> findAllByAvailableTrueAndVeganTrueOrVegetarianTrue();
 
 }

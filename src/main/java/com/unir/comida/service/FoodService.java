@@ -24,6 +24,14 @@ public class FoodService {
     return this.foodRepository.findAllByAvailableTrueAndNameIgnoreCase(name);
   }
 
+  public List<FoodEntity> getWith(String ingredient) {
+    return this.foodRepository.findAllByAvailableTrueAndDescriptionContainingIgnoreCase(ingredient);
+  }
+
+  public List<FoodEntity> getWithout(String ingredient) {
+    return this.foodRepository.findAllByAvailableTrueAndDescriptionNotContainingIgnoreCase(ingredient);
+  }
+
   public List<FoodEntity> getAvailableVeganVegetarian() {
     return this.foodRepository.findAllByAvailableTrueAndVeganTrueOrVegetarianTrue();
   }

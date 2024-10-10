@@ -10,10 +10,10 @@ import java.util.List;
 
 @Service
 public class OrderService {
-    @Autowired
-    private OrderRepository orderRepository;
+  @Autowired
+  private OrderRepository orderRepository;
 
-    public List<OrderEntity> getAll() {
-        return this.orderRepository.findAll();
-    }
+  public List<OrderEntity> getAll() {
+    return this.orderRepository.findAll();
+  }
 }

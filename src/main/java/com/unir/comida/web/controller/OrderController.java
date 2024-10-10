@@ -1,4 +1,4 @@
-package com.unir.comida.web;
+package com.unir.comida.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
