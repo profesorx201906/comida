@@ -19,4 +19,12 @@ public class FoodService {
   public FoodEntity get(int idFood) {
     return this.foodRepository.findById(idFood).orElse(null);
   }
+
+  public FoodEntity save(FoodEntity food) {
+    return this.foodRepository.save(food);
+  }
+
+  public boolean exists(int idFood) {
+    return this.foodRepository.existsById(idFood);
+  }
 }
