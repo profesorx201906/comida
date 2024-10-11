@@ -16,4 +16,6 @@ public interface FoodRepository extends ListCrudRepository<FoodEntity, Integer> 
 
   List<FoodEntity> findAllByAvailableTrueAndVeganTrueOrVegetarianTrue();
 
+  int countByVeganTrue();
+
 }

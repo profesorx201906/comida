@@ -16,8 +16,12 @@ public class FoodService {
     return this.foodRepository.findAll();
   }
 
-  public List<FoodEntity> getAvailable() {
+  public List<FoodEntity> getAvailable() {    
     return this.foodRepository.findAllByAvailableTrueOrderByPrice();
+  }
+
+  public int getCountByVeganTrue(){
+    return this.foodRepository.countByVeganTrue();
   }
 
   public FoodEntity getByName(String name) {

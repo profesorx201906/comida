@@ -14,6 +14,8 @@ import com.unir.comida.persistence.entity.FoodEntity;
 import com.unir.comida.service.FoodService;
 
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api/foods")
@@ -34,6 +36,13 @@ public class FoodController {
   @GetMapping("/available")
   public ResponseEntity<List<FoodEntity>> getAvailable() {
     return ResponseEntity.ok(this.foodService.getAvailable());
+  }
+
+  @GetMapping("/vegantrue")
+  public ResponseEntity<Map<String, String>> getCountByVeganTrue() {
+    Map<String, String> response = new HashMap<>();
+    response.put("cantidad", String.valueOf(this.foodService.getCountByVeganTrue()));
+    return ResponseEntity.ok(response);
   }
 
   @GetMapping("/veganvegetarian")
